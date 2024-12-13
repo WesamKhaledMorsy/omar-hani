@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify 
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
@@ -46,16 +46,16 @@ def recommend_plan(name, age, weight, fat_percentage):
     # Find a matching plan
     for plan in plans:
         if (plan["Weight Range"][0] <= weight <= plan["Weight Range"][1] and
-            plan["Fat % Range"][0] <= fat_percentage <= plan["Fat % Range"][1]):
+                plan["Fat % Range"][0] <= fat_percentage <= plan["Fat % Range"][1]):
             return {
                 "success": True,
                 "message": f"Hello {name} (Age: {age}), based on your weight ({weight} kg) and fat percentage ({fat_percentage}%), "
-                          f"you are recommended to follow the '{plan['Plan Name']}' plan.\n"
-                          f"Daily Exercises: {plan['Daily Exercises']}\n"
-                          f"Focus Areas: {plan['Focus Areas']}\n"
-                          f"Duration: {plan['Duration (Days)']} days."
+                           f"you are recommended to follow the '{plan['Plan Name']}' plan.\n"
+                           f"Daily Exercises: {plan['Daily Exercises']}\n"
+                           f"Focus Areas: {plan['Focus Areas']}\n"
+                           f"Duration: {plan['Duration (Days)']} days."
             }
-   
+
     return {
         "success": False,
         "message": f"Sorry {name}, no plan matches your details. Please consult a fitness expert!"
@@ -83,4 +83,4 @@ def get_recommendation():
         }), 400
 
 if __name__ == '__main__':
-    app.run(debug=True) 
+    app.run(debug=True)
