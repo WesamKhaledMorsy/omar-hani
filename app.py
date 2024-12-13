@@ -2,8 +2,7 @@ from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
-def recommend_plan(name, age, weight, fat_percentage):
-    # Define the training plans
+def recommend_plan(name, age, weight, fat_percentage):   
     plans = [
         {
             "Plan ID": 1,
